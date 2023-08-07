@@ -98,7 +98,7 @@ class Look_there
     if ((@my_hand == 0 && @cpu_hand == 1)||(@my_hand == 1 && @cpu_hand == 2)||(@my_hand == 2 && @cpu_hand == 0)) && @my_way == @cpu_way
       puts "YOU WIN!"
     elsif ((@my_hand == 1 && @cpu_hand == 0)||(@my_hand == 2 && @cpu_hand == 1)||(@my_hand == 0 && @cpu_hand == 2)) && @my_way == @cpu_way
-      puts "YOUR LOSS!"
+      puts "YOU LOSE!"
     end
   end
 end
@@ -115,6 +115,9 @@ while next_game
   cpu_hand = rand(3)
   janken.error_check(my_hand)
   if my_hand > 3
+    break
+  elsif  my_hand == 3
+    puts "勝負を放棄しました"
     break
   end
   janken.janken_voice
